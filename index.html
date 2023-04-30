@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.js"></script>
+    <!-- <base href="/"> -->
+  </head>
+
+  <body ng-app="myApp">
+    <div ng-include="'./header.html'"></div>
+    <div class="content" ui-view="">
+      <div ng-view></div>
+    </div>
+
+    <script>
+      const app = angular.module("myApp", ["ngRoute"]);
+      app.config(function ($routeProvider, $locationProvider) {
+        $routeProvider
+          .when("/home1", {
+            templateUrl: "/home1.html",
+          })
+          .when("/home2", {
+            templateUrl: "/home2.html",
+          })
+          .when("/home3", {
+            templateUrl: "/home3.html",
+          });
+      });
+    </script>
+  </body>
+</html>
